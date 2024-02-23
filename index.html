@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spotify clone: Music for everyone</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <div class="container">
@@ -21,8 +21,14 @@
                 </div>
             </div>
             <div class="lib">
-                <span><img class="libsvg" src="img/playlist.svg" alt=""></span>
-                <p>Library</p>
+                <div class="mflex">
+                    <span><img class="libsvg" src="img/playlist.svg" alt=""></span>
+                    <p>Library</p>
+                </div>
+                <div class="songlist">
+                 <ul>
+                    </ul>
+                </div>
             </div>
         </div>
         <div class="rightc">
@@ -99,9 +105,22 @@
                         </div>
                     </div>
                     </div>
-                </div>
+                    <div class="playbar">
+                        <div class="flex">
+                            <div class="seekbar">
+                                <div class="circle"></div>
+                            </div>
+                            <div class="icons">
+                                <span><img src="/img/previous.png" alt=""></span>
+                                <span><img src="img/play.png" alt=""></span>
+                                <span><img src="img/next-button.png" alt=""></span>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
             </div>
         </div>
     </div>
+    <script src="js/script.js"></script>
 </body>
 </html>

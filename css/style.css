@@ -1,0 +1,359 @@
+@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Roboto+Slab:wght@100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Protest+Revolution&family=Roboto+Slab:wght@100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap");
+
+body {
+  background-color: black;
+}
+
+.spotify {
+  border-radius: 7px;
+  width: 25vw;
+  height: 20vh;
+  margin-bottom: 5px;
+  background-color: rgb(37, 36, 36);
+}
+
+.lib {
+  border-radius: 7px;
+  width: 25vw;
+  height: 76vh;
+  background-color: rgb(37, 36, 36);
+}
+
+.navbar {
+  margin-left: 5px;
+  border-radius: 3px;
+  width: 73.5vw;
+  height: 10vh;
+  background-color: rgb(109, 108, 108);
+}
+
+.tgl {
+  color: whitesmoke;
+  font-size: larger;
+  font-weight: bold;
+  margin-left: 10px;
+  letter-spacing: 1px;
+  font-family: "Protest Revolution", sans-serif;
+}
+.tgl:hover {
+  color: #2c5d63;
+}
+
+.maincontent {
+  margin-left: 5px;
+  margin-top: 7px;
+  border-radius: 3px;
+  height: 85.5vh;
+  width: 73.5vw;
+  background-color: rgb(37, 36, 36);
+}
+
+.container {
+  display: flex;
+}
+
+.leftc {
+  margin: 2px;
+}
+
+.rightc {
+  margin: 2px;
+}
+
+.logo {
+  filter: invert(1);
+  padding: 18px;
+}
+.homesvg,
+.searchsvg {
+  width: 25px;
+  filter: invert(1);
+  position: relative;
+  left: 16px;
+}
+
+.libsvg {
+  width: 25px;
+  filter: invert(1);
+  position: relative;
+  left: 16px;
+  top: 21px;
+}
+
+.mflex{
+  display: flex;
+  gap: 28px;
+}
+
+.lib p {
+  margin-top: 25px;
+  font-family: "Fredoka", sans-serif;
+  font-size: larger;
+  font-weight: 500;
+  color: white;
+  bottom: 3px;
+}
+
+.home,
+.search {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.home p {
+  margin: 0;
+  padding: 0;
+  font-family: "Fredoka", sans-serif;
+  font-weight: 400;
+  color: white;
+  bottom: 3px;
+}
+
+.search p {
+  font-family: "Fredoka", sans-serif;
+  font-weight: 400;
+  color: white;
+  position: relative;
+  bottom: 3px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.loginbtn {
+  border-radius: 14px;
+  padding: 7px 18px;
+  font-size: 16px;
+  font-family: "Roboto Slab", serif;
+  border: none;
+  position: relative;
+  font-weight: bold;
+  cursor: pointer;
+  margin-right: 10px;
+  transition: font-size 0.2s ease, font-weight 0.3s ease;
+}
+
+.signupbtn {
+  border-radius: 14px;
+  padding: 7px 18px;
+  font-size: 16px;
+  font-family: "Roboto Slab", serif;
+  border: none;
+  background-color: rgb(109, 108, 108);
+  font-weight: bolder;
+  cursor: pointer;
+}
+
+.loginbtn:hover {
+  font-weight: bolder;
+  font-size: 18px;
+}
+
+.signupbtn:hover {
+  color: white;
+}
+
+.fb {
+  background-color: rgb(46, 46, 46);
+  height: 235px;
+  width: 180px;
+  padding: 5px;
+  margin: 10px;
+  border-radius: 10px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.fb:hover {
+  background-color: rgb(81, 79, 79);
+}
+
+.maincontent p {
+  font-size: 25px;
+  font-family: "Roboto Slab", serif;
+  color: aliceblue;
+  margin: 0px 18px;
+  padding: 10px 0px;
+}
+.boxes {
+  display: flex;
+}
+
+.fbimg {
+  position: relative;
+  padding: 3px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.play {
+  position: absolute;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  width: 172px; 
+  height: 171px; 
+}
+
+.svg {
+  padding: 4px;
+  width: 40px;
+  height: 40px;
+  opacity: 0;
+}
+
+.fb:hover .svg {
+    animation: slide 0.8s ease forwards; /* Apply the slide animation on hover */
+}
+
+@keyframes slide {
+    0% {
+        opacity: 0;
+        transform: translateY(50%); 
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); 
+    }
+}
+
+.fbimg img {
+  border-radius: 10px;
+  max-width: 96%;
+  max-height: 96%;
+}
+
+.content1 h6 {
+  font-size: 16px;
+  margin: 1px 5px;
+  padding: 0;
+  font-family: "Quicksand", sans-serif;
+  color: white;
+}
+
+.content1 p {
+  font-size: 13px;
+  margin: 3px 5px;
+  padding: 0;
+  font-family: "Quicksand", sans-serif;
+  color: rgb(8, 129, 28);
+  font-weight: bold;
+}
+
+.playbar{
+    color: white;
+    background-color: #2c5d63;
+    position: fixed;
+    bottom: 17px;
+    width: 1119px;
+    height: 50px;
+    border-radius: 35px;
+    padding:5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.playbar span img{
+    width: 26px;
+    height: 26px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.playbar span img:hover{
+    filter: invert(1);
+}
+
+.songlist ul{
+  padding: 0px 12px;
+}
+
+.songlist{
+  height: 467px;
+  overflow: auto;
+}
+
+/* width and height for the scrollbar track */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 12px;
+}
+
+/* background of the scrollbar track */
+::-webkit-scrollbar-track {
+  background:rgb(46, 46, 46);
+}
+
+/* scrollbar handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 6px; /* roundness of the scrollbar handle */
+}
+
+/* hover effect for scrollbar handle */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+
+.songlist ul li{
+  list-style: none;
+  color: #2c5d63;
+  font-family: "Quicksand", sans-serif;
+  font-size: 15px;
+  padding: 4px 10px;
+  margin: 7px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid white;
+  border-radius: 7px;
+}
+
+.songlist ul li:hover{
+  color: white;
+}
+
+.invert{
+  filter: invert(1);
+}
+
+.playnow{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.playnow span{
+  font-size: smaller;
+}
+
+.info{
+  display: flex;
+  gap: 12px;
+}
+
+.seekbar{
+  height: 3px;
+  width: 70vw;
+  border: 2px solid black;
+}
+
+.flex{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
