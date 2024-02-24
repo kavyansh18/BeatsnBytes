@@ -1,5 +1,6 @@
 console.log("Here we gooo")
 let currentsong = new Audio();
+let songs;
 
 function secondsToMinutesSeconds(seconds) {
     if (isNaN(seconds) || seconds < 0) {
@@ -41,7 +42,7 @@ const playmusic = (track, pause=false)=>{
 async function main(){
 
     //get list of songs
-    let songs= await getSongs()
+    songs= await getSongs()
 
     playmusic(songs[0].slice(0, -4 ),true)
 
@@ -84,7 +85,6 @@ async function main(){
     //listen for timeupdate event
     currentsong.addEventListener("timeupdate",()=>{
         document.querySelector(".songtime").innerHTML=`${secondsToMinutesSeconds(currentsong.currentTime)}/${secondsToMinutesSeconds(currentsong.duration)}`
-        console.log((currentsong.currentTime / currentsong.duration) * 100 + "%")
         document.querySelector(".circle").style.left=(currentsong.currentTime / currentsong.duration) * 100 + "%"
     })
 
@@ -94,5 +94,51 @@ async function main(){
         document.querySelector(".circle").style.left = percent + "%";
         currentsong.currentTime = ((currentsong.duration) * percent) / 100
     })
-} 
+
+    previous.addEventListener("click", () => {
+        currentsong.pause()
+        console.log("Previous clicked")
+        let index = songs.indexOf(currentsong.src.split("/").slice(-1)[0])
+        if ((index - 1) >= 0) {
+            playmusic(songs[index - 1].slice(0, -4 ))
+            play.src = "img/pause.png"; 
+        }
+    })
+    
+    next.addEventListener("click", () => {
+        currentsong.pause()
+        console.log("Next clicked")
+        let index = songs.indexOf(currentsong.src.split("/").slice(-1)[0])
+        if ((index + 1) < songs.length) {
+            playmusic(songs[index + 1].slice(0, -4 ))
+            play.src = "img/pause.png"; 
+        }
+    })
+
+    // Add an event to volume
+    document.querySelector(".range").getElementsByTagName("input")[0].addEventListener("change", (e) => {
+        currentsong.volume = parseInt(e.target.value) / 100
+        if (currentsong.volume >0){
+            document.querySelector(".vol>img").src = document.querySelector(".vol>img").src.replace("mute.svg", "volume.svg")
+        }
+        if (currentsong.volume ==0){
+            document.querySelector(".vol>img").src = document.querySelector(".vol>img").src.replace("volume.svg", "mute.svg")
+        }
+    })
+
+    // Add event listener to mute the track
+    document.querySelector(".vol>img").addEventListener("click", e=>{ 
+        if(e.target.src.includes("volume.svg")){
+            e.target.src = e.target.src.replace("volume.svg", "mute.svg")
+            currentsong.volume = 0;
+            document.querySelector(".range").getElementsByTagName("input")[0].value = 0;
+        }
+        else{
+            e.target.src = e.target.src.replace("mute.svg", "volume.svg")
+            currentsong.volume =0;
+            document.querySelector(".range").getElementsByTagName("input")[0].value = 10;
+        }
+    })
+
+}
 main()

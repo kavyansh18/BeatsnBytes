@@ -381,9 +381,38 @@ body {
   font-family: "Quicksand", sans-serif;
   font-size: large;
   font-weight: bolder;
+  width: 250px;
 }
 
 .songtime{
   font-family: "Quicksand", sans-serif;
   font-size: smaller;
+  width: 85px;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
+.vol{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.range{
+  cursor: pointer;
+  border-radius: 16px;
+}
+
+.voltime{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+
+
