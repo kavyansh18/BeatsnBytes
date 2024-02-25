@@ -1,6 +1,7 @@
 console.log("Here we gooo")
 let currentsong = new Audio();
 let songs;
+let currfolder;
 
 function secondsToMinutesSeconds(seconds) {
     if (isNaN(seconds) || seconds < 0) {
@@ -15,39 +16,23 @@ function secondsToMinutesSeconds(seconds) {
 
     return `${formattedMinutes}:${formattedSeconds}`;
 }
-async function getSongs(){
-    let a = await fetch("http://127.0.0.1:5500/songs/")
+async function getSongs(folder){
+    currfolder=folder
+    let a = await fetch(`http://127.0.0.1:5500/${folder}/`)
     let response = await a.text();
     let div= document.createElement("div");
     div.innerHTML=response;
     let as= div.getElementsByTagName('a');
-    let songs=[]
+    songs=[]
     for (let index = 0; index < as.length; index++) {
         const element = as[index];
         if(element.href.endsWith(".mp3")){
-            songs.push(element.href.split("/songs/")[1])
+            songs.push(element.href.split(`/${folder}/`)[1])
         }
     }
-    return songs
-}
-
-const playmusic = (track, pause=false)=>{
-    currentsong.src= "/songs/" + track + ".mp3"
-    if(!pause){
-        currentsong.play()  
-    }
-    document.querySelector(".songinfo").innerHTML= decodeURI(track)
-    document.querySelector(".songtime").innerHTML="00:00 / 00:00"
-}
-async function main(){
-
-    //get list of songs
-    songs= await getSongs()
-
-    playmusic(songs[0].slice(0, -4 ),true)
-
     //show all the songs in the playlist library section
     let songul=document.querySelector(".songlist").getElementsByTagName("ul")[0]
+    songul.innerHTML=''
     for (const song of songs) {
         songul.innerHTML=songul.innerHTML + `<li> 
                             <div class="info">
@@ -63,12 +48,29 @@ async function main(){
                             </div> </li> `
     }
     
+    //attach an event to each song
     Array.from(document.querySelector(".songlist").getElementsByTagName("li")).forEach(e => {
         e.addEventListener("click",element=>{
             console.log(e.querySelector(".nameandartist").firstElementChild.innerHTML)
             playmusic(e.querySelector(".nameandartist").firstElementChild.innerHTML)
     })
 })
+}
+
+const playmusic = (track, pause=false)=>{
+    currentsong.src= `/${currfolder}/` + track + ".mp3"
+    if(!pause){
+        currentsong.play()  
+    }
+    document.querySelector(".songinfo").innerHTML= decodeURI(track)
+    document.querySelector(".songtime").innerHTML="00:00 / 00:00"
+}
+async function main(){
+
+    //get list of songs
+    await getSongs("songs/karanaujla")
+
+    playmusic(songs[0].slice(0, -4 ),true)
 
     //attach an event listner to previous, playb, next
     play.addEventListener("click", ()=>{
@@ -139,6 +141,18 @@ async function main(){
             document.querySelector(".range").getElementsByTagName("input")[0].value = 10;
         }
     })
+
+    // Load the playlist whenever card is clicked
+    Array.from(document.getElementsByClassName("fb")).forEach(e => { 
+        e.addEventListener("click", async item => {
+            console.log("Fetching Songs")
+            songs = await getSongs(`songs/${item.currentTarget.dataset.folder}`)  
+            playmusic(songs[0])
+
+        })
+    })
+
+
 
 }
 main()
