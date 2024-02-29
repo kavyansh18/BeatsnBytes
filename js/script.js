@@ -84,6 +84,10 @@ async function main(){
         }
     })
 
+    if(currentsong.play){
+        play.src ="img/play.png"
+    }
+
     //listen for timeupdate event
     currentsong.addEventListener("timeupdate",()=>{
         document.querySelector(".songtime").innerHTML=`${secondsToMinutesSeconds(currentsong.currentTime)}/${secondsToMinutesSeconds(currentsong.duration)}`
@@ -128,6 +132,8 @@ async function main(){
         }
     })
 
+
+
     // Add event listener to mute the track
     document.querySelector(".vol>img").addEventListener("click", e=>{ 
         if(e.target.src.includes("volume.svg")){
@@ -146,13 +152,40 @@ async function main(){
     Array.from(document.getElementsByClassName("fb")).forEach(e => { 
         e.addEventListener("click", async item => {
             console.log("Fetching Songs")
-            songs = await getSongs(`songs/${item.currentTarget.dataset.folder}`)  
-            playmusic(songs[0])
-
+            songs = await getSongs(`songs/${item.currentTarget.dataset.folder}`) 
         })
     })
 
+    //add event listener for hamburger click
+    document.querySelector(".hb").addEventListener("click", ()=>{
+        document.querySelector(".leftc").style.left= "0"
+    })
 
+    //add event listner to close button click
+    document.querySelector(".close").addEventListener("click", ()=>{
+        document.querySelector(".leftc").style.left= "-100%"
+    })
+
+    //add event listner on click when click on album show leftc songs
+    document.querySelector(".a").addEventListener("click", ()=>{
+        document.querySelector(".leftc").style.left= "0"
+    })
+
+    document.querySelector(".b").addEventListener("click", ()=>{
+        document.querySelector(".leftc").style.left= "0"
+    })
+
+    document.querySelector(".c").addEventListener("click", ()=>{
+        document.querySelector(".leftc").style.left= "0"
+    })
+
+    document.querySelector(".d").addEventListener("click", ()=>{
+        document.querySelector(".leftc").style.left= "0"
+    })
+
+    document.querySelector(".e").addEventListener("click", ()=>{
+        document.querySelector(".leftc").style.left= "0"
+    })
 
 }
 main()

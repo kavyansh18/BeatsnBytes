@@ -65,7 +65,8 @@ body {
 
 .logo {
   filter: invert(1);
-  padding: 18px;
+  padding: 9px 18px;
+  width: 40px;
 }
 .homesvg,
 .searchsvg {
@@ -155,13 +156,22 @@ body {
   font-size: 18px;
 }
 
+.flexx{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .signupbtn:hover {
   color: white;
 }
 
+.hb img{
+  display: none;
+}
+
 .fb {
   background-color: rgb(46, 46, 46);
-  height: 235px;
+  height: 270px;
   width: 180px;
   padding: 5px;
   margin: 10px;
@@ -349,6 +359,7 @@ body {
   width: 70vw;
   background-color: black;
   cursor: pointer;
+  margin-top: 4px;
 }
 
 .flex{
@@ -402,16 +413,138 @@ body {
   gap: 5px;
 }
 
+.vol img{
+  position: absolute;
+  right: 267px;
+  bottom: -2px;
+}
+
+.songtime{
+  margin-left: 40px;
+  margin-right: 10px;
+}
 .range{
   cursor: pointer;
   border-radius: 16px;
+  display: flex;
 }
 
-.voltime{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 15px;
+.close{
+  display: none;
+}
+
+@media (max-width:1400px) {
+  .leftc{
+    position: absolute;
+    left: -100%;
+    transition: all .5s ease-in-out;
+    z-index: 1;
+    width: 233px;
+  }
+  .lib , .spotify{
+    width: 75vw;
+  }
+  .lib{
+    height: 91vh;
+    z-index: 1;
+  }
+  .rightc{
+    width: 100vw;
+  }
+  .logo{
+    margin-bottom: 7px;
+  }
+  .playbar{
+    width: 89.5vw;
+    border-radius: 10px;
+    bottom: 5px;
+    z-index: 10;
+  }
+
+  .maincontent{
+    width: 92vw;
+    height: auto;
+    margin-bottom: 63px;
+    border-radius: 10px;
+  }
+
+  .navbar{
+    width: 92vw;
+    height: 8vh;
+    border-radius: 10px;
+  }
+
+  .boxes{
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two equal-width columns */
+    grid-gap: 10px; 
+  }
+  .fb{
+    width: auto;
+  }
+
+  .icons span img{
+    width: 25px;
+    height: 25px;
+  }
+  input {
+    width: 85px; 
+    height: 15px; 
+    padding: 0px; 
+    margin: 0px; 
+  }
+  .vol img{
+  width: 15px;
+  height: 15px;
+  }
+  .flex{
+    width: 88vw;
+  }
+
+  .songinfo{
+    font-size: 13px;
+    font-weight: bolder;
+    width: 80px; 
+  }
+  .vol img{
+    position: absolute;
+    bottom: 21px;
+    left: -18px;
+  }
+  .seekbar{
+    width: 89vw;
+  }
+  .btn{
+    margin-top: 4px;
+  }
+  .loginbtn , .signupbtn{
+    padding: 7px 12px;
+    font-size: 13px;
+  }
+  .hb img{
+    margin-left: 7px;
+    display: block;
+  }
+
+  .close{
+    display: block;
+    position: absolute;
+    left: 256px;
+    top: 10px;
+  }
+
+  .svg{
+    display: none;
+  }
+
+  .range{
+    display: block;
+  }
+
+  .songtime{
+    margin-left: 0;
+    margin-right: 0;
+  }
 }
 
   
